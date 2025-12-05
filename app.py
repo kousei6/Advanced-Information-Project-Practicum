@@ -3,7 +3,7 @@ import streamlit.components.v1 as components
 import json
 
 def main():
-    st.set_page_config(layout="wide", page_title="Wide Breathing Keyboard")
+    st.set_page_config(layout="wide", page_title="Dynamic Breathing Keyboard")
 
     # --- 余白削除 & ワイド表示用のCSS設定 ---
     st.markdown("""
@@ -23,14 +23,19 @@ def main():
         </style>
     """, unsafe_allow_html=True)
     
-    st.title("⌨️ Ultra Wide Breathing Keyboard")
+    st.title("⌨️ Dynamic Breathing Keyboard")
 
     # サイドバー設定
     with st.sidebar:
         st.header("Settings")
-        speed = st.slider("呼吸の速さ (秒)", 0.5, 5.0, 3.0, 0.1)
-        scale_min = st.slider("最小サイズ", 0.9, 1.0, 0.97, 0.01)
-        scale_max = st.slider("最大サイズ", 1.0, 1.1, 1.01, 0.01)
+        # 範囲を大幅に広げました
+        speed = st.slider("呼吸の速さ (秒)", 0.1, 5.0, 2.0, 0.1)
+        
+        # 最小サイズ: 0.5倍(半分)まで小さくできるように変更
+        scale_min = st.slider("最小サイズ (縮小時)", 0.5, 1.0, 0.8, 0.01)
+        
+        # 最大サイズ: 1.5倍まで大きくできるように変更
+        scale_max = st.slider("最大サイズ (拡大時)", 1.0, 1.5, 1.2, 0.01)
 
     # --- キーボードデータ ---
     rows = [
@@ -139,19 +144,21 @@ def main():
         }}
 
         #screen {{
-            width: 99%;
-            height: 50px; /* 入力欄の高さを固定してスリムに */
+            width: 95%;
+            height: 50px;
             background-color: #333;
             color: #0f0;
             font-size: 20px;
             border-radius: 8px;
             padding: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 20px; /* 拡大時に重ならないよう余白を多めに確保 */
             border: 2px solid #555;
             box-shadow: 0 0 10px rgba(0,0,0,0.5);
             font-family: monospace;
             resize: none;
             box-sizing: border-box;
+            z-index: 100; /* 重なり順を前面に */
+            position: relative;
         }}
 
         @keyframes breathe {{
@@ -166,19 +173,21 @@ def main():
             background-color: #e8eaed;
             border-radius: 10px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            width: 99%; /* 横幅いっぱい */
-            height: 55vh; /* 高さ画面の55%に抑える -> これで横長に見える */
+            width: 95%;
+            height: 55vh;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
             box-sizing: border-box;
+            /* 大きく拡大したときにはみ出しても表示するように設定する場合もありますが
+               ここではバランスをとっています */
         }}
 
         .kb-row {{
             display: flex;
             justify-content: space-between;
             width: 100%;
-            height: 18%; /* 行の高さ割合 */
+            height: 18%;
         }}
 
         .key {{
@@ -186,7 +195,7 @@ def main():
             border: 1px solid #999;
             border-bottom: 3px solid #777;
             border-radius: 4px;
-            margin: 0 1px; /* キー間隔を狭めて密度を上げる */
+            margin: 0 1px;
             position: relative;
             cursor: pointer;
             transition: all 0.1s;
@@ -202,7 +211,6 @@ def main():
             background-color: #f0f0f0;
         }}
 
-        /* 文字サイズ調整：縦が潰れる分、少し小さく調整 */
         .label-top {{
             position: absolute;
             top: 4px;
@@ -292,9 +300,9 @@ def main():
     </body>
     </html>
     """
-
-    # 全体の高さ(height)を550pxに減らすことで、アスペクト比を横長にします
-    components.html(html_code, height=550, scrolling=False)
+    
+    # 拡大時にiframeからはみ出さないよう、高さを十分確保します
+    components.html(html_code, height=650, scrolling=False)
 
 if __name__ == "__main__":
     main()
