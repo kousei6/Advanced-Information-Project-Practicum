@@ -47,5 +47,9 @@
   
 <img width="1016" height="763" alt="image" src="https://github.com/user-attachments/assets/d6d5aeb6-6d24-4082-a138-294158f2105a" />
 
+# 今後追加したい機能
+- csvファイルで保存できるようにする
+- 
+
 
 
