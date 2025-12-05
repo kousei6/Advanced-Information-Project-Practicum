@@ -1,5 +1,21 @@
 # Advanced-Information-Project-Practicum
-大きくなるマウス
+先進情報専門実習のデータを習得する環境を構築する
+
+# 大きさが変化するキーボード
+
+1. 開発環境
+```
+python 3.11.13
+stremalit
+vscode
+```
+2. アプリケーションリンク
+[キーボードが拡大縮小するアプリケーション]
+(https://yvv4hv5vikxibcoh8rhfzq.streamlit.app/)
+[キーボードが拡大縮小する＋キーボードの動きが上下左右する機能]
+(https://app1py-7yyuwzkvgydeprzdnohjum.streamlit.app/)
+   
+4. 
 
 コードリスト
 - [app.py](#app.py)
