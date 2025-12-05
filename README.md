@@ -2,11 +2,11 @@
 大きくなるマウス
 
 コードリスト
-- app.py(#app.py)
+- [app.py](#app.py)
 基礎となるコード
-- app1.py(#app1.py)
+- [app1.py](#app1.py)
 キーボードの動きがランダムに変化する機能を追加
-# app.py(サンプル)
+# app.py
 
 **機能概要: 呼吸するソフトウェアキーボード (Dynamic Breathing Keyboard)**
 
