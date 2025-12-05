@@ -16,14 +16,17 @@ vscode
 
 
 [キーボードが拡大縮小する＋キーボードの動きが上下左右する機能](https://app1py-7yyuwzkvgydeprzdnohjum.streamlit.app/)
-   
-4. 
 
-コードリスト
+
+
+
+# コードリスト
 - [app.py](#app.py)
 キーボードが拡大縮小する
 - [app1.py](#app1.py)
 キーボードが拡大縮小する＋キーボードの動きが上下左右する機能
+
+
 # app.py
 
 **機能概要: 呼吸するソフトウェアキーボード (Dynamic Breathing Keyboard)**
