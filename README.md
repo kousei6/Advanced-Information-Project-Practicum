@@ -10,10 +10,12 @@ stremalit
 vscode
 ```
 2. アプリケーションリンク
-[キーボードが拡大縮小するアプリケーション]
-(https://yvv4hv5vikxibcoh8rhfzq.streamlit.app/)
-[キーボードが拡大縮小する＋キーボードの動きが上下左右する機能]
-(https://app1py-7yyuwzkvgydeprzdnohjum.streamlit.app/)
+
+
+[キーボードが拡大縮小するアプリケーション](https://yvv4hv5vikxibcoh8rhfzq.streamlit.app/)
+
+
+[キーボードが拡大縮小する＋キーボードの動きが上下左右する機能](https://app1py-7yyuwzkvgydeprzdnohjum.streamlit.app/)
    
 4. 
 
